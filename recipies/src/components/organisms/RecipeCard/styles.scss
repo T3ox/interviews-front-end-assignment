@@ -1,0 +1,35 @@
+.recipe-container {
+    background-color: rgb(155, 155, 155);
+    height: 25vh;
+    overflow: hidden;
+    display: flex;
+    border-radius: 10px;
+
+    .img-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        width: 20%;
+        //background-color: red;
+
+        img {
+            height: 85%;
+            width: 85%;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+    }
+
+    .content-container {
+        height: 100%;
+        width: 55%;
+        //background-color: green;
+    }
+
+    .details-container {
+        height: 100%;
+        width: 20%;
+        //background-color: yellow;
+    }
+}
