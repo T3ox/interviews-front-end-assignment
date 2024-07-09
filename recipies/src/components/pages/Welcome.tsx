@@ -1,7 +1,12 @@
 import React from "react";
+import WelcomeContainer from "../organisms/WelcomeContainer/WelcomeContainer";
 
 const Welcome = () => {
-    return <div></div>;
+    return (
+        <>
+            <WelcomeContainer />
+        </>
+    );
 };
 
 export default Welcome;
