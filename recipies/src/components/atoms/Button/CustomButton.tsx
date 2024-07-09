@@ -5,7 +5,7 @@ import Props from "./types";
 const CustomButton: React.FC<Props> = ({ text, handle }) => {
     return (
         <button
-            className="custom-button btn-danger btn rounded-pill rounded mt-4"
+            className="custom-button btn-danger btn rounded-pill rounded "
             onClick={handle}
         >
             {text}

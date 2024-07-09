@@ -4,14 +4,17 @@ import "./App.css";
 
 import RecipesList from "./components/pages/RecipesList";
 import Welcome from "./components/pages/Welcome";
+import Layout from "./components/utils/Layout/Layout";
 
 const App = () => {
     return (
         <BrowserRouter>
-            <Routes>
-                <Route path="/welcome" element={<Welcome />} />
-                <Route path="/" element={<RecipesList />} />
-            </Routes>
+            <Layout>
+                <Routes>
+                    <Route path="/welcome" element={<Welcome />} />
+                    <Route path="/" element={<RecipesList />} />
+                </Routes>
+            </Layout>
         </BrowserRouter>
     );
 };

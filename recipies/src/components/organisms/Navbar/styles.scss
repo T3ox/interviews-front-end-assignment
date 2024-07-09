@@ -1,0 +1,15 @@
+#navbar-header {
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    height: 8svh;
+
+    .navbar {
+        max-width: 90%;
+
+        .button-section {
+            width: 15%;
+            height: 10%;
+            gap: 40px;
+            overflow: hidden;
+        }
+    }
+}
