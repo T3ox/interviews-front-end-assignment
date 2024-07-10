@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { UpdatedAPIRecipe } from "../../../API/APIData";
 import getRecipes from "../../../API/getRecipes";
+import CustomButton from "../../atoms/Button/CustomButton";
 import TagContainer from "../../molecules/TagContainer/TagContaier";
 import "./styles.scss";
 
 const RecipeCard = () => {
     const [recipes, setRecipes] = useState<UpdatedAPIRecipe[]>();
+    const navigate = useNavigate();
 
     useEffect(() => {
         const getData = async () => {
@@ -20,7 +23,9 @@ const RecipeCard = () => {
         return <h2>...loading</h2>;
     }
 
-    console.log(recipes);
+    const openDetail = (recipe: UpdatedAPIRecipe) => {
+        navigate("/detail", { state: { recipe } });
+    };
 
     return (
         <div className="recipe-list">
@@ -47,6 +52,10 @@ const RecipeCard = () => {
                     </div>
                     <div className="details-container">
                         <h3>{recipe.id}</h3>
+                        <CustomButton
+                            text="Details"
+                            handle={() => openDetail(recipe)}
+                        />
                     </div>
                 </div>
             ))}
