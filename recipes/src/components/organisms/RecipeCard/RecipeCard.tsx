@@ -50,8 +50,7 @@ const RecipeCard = () => {
                             />
                         </div>
                     </div>
-                    <div className="details-container">
-                        <h3>{recipe.id}</h3>
+                    <div className="details-container d-flex align-items-center">
                         <CustomButton
                             text="Details"
                             handle={() => openDetail(recipe)}

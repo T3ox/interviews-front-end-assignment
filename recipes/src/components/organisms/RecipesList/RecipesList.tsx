@@ -15,29 +15,16 @@ const RecipesList = () => {
         getData();
     }, []);
 
-    if (recipes) {
-        return (
-            <div>
-                <h1>Recipe List</h1>
-                <RecipeCard />
-
-                <div style={{ width: "100vw", backgroundColor: "yellow" }}>
-                    godo
-                </div>
-
-                <ul>
-                    {recipes.map((recipe) => (
-                        <li key={recipe.id}>
-                            <h2>{recipe.name}</h2>
-                            <p>{recipe.instructions}</p>
-                        </li>
-                    ))}
-                </ul>
-            </div>
-        );
-    } else {
-        return <h2>...loading</h2>;
+    if (!recipes) {
+        <h2>...loading</h2>;
     }
+
+    return (
+        <div>
+            <h1>Recipe List</h1>
+            <RecipeCard />
+        </div>
+    );
 };
 
 export default RecipesList;

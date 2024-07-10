@@ -37,3 +37,11 @@ export interface Difficulty {
     id: string;
     name: string;
 }
+
+export interface APIReviews {
+    id: string;
+    recipeId: string;
+    comment: string;
+    rating: string;
+    date: string;
+}
