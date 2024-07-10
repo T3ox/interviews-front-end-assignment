@@ -10,7 +10,11 @@ const WelcomeContainer = () => {
             <div className="row justify-content-center">
                 <h2>Ricettario</h2>
                 <span>Esplorare le nostre ricette</span>
-                <CustomButton text="explore" handle={() => navigate("/")} />
+                <CustomButton
+                    text="explore"
+                    handle={() => navigate("/")}
+                    disabled={false}
+                />
             </div>
         </main>
     );

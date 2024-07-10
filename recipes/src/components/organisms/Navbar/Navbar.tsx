@@ -6,10 +6,20 @@ const Navbar = () => {
     return (
         <header id="navbar-header">
             <nav className="navbar container">
-                <h2>Recipes</h2>
+                <a href="/">
+                    <h2>Recipes</h2>
+                </a>
                 <div className="button-section d-flex">
-                    <CustomButton text="Add" handle={() => {}} />
-                    <CustomButton text="Filter" handle={() => {}} />
+                    <CustomButton
+                        text="Add"
+                        handle={() => {}}
+                        disabled={false}
+                    />
+                    <CustomButton
+                        text="Filter"
+                        handle={() => {}}
+                        disabled={false}
+                    />
                 </div>
             </nav>
         </header>

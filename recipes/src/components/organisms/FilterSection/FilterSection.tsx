@@ -19,23 +19,6 @@ const FilterSection = () => {
         "Choose preference",
     ];
 
-    /*const discoverFilter = [
-        { title: "Search by name", placeholders: "Enter reciper name" },
-        { title: "Select category", placeholders: "Choose category" },
-        { title: "Select cuisine", placeholders: "Choose cuisine" },
-        {
-            title: "Select dietary preference",
-            placeholders: "Choose preference",
-        },
-    ];*/
-
-    const rfTitles = ["Recipe filters", "Ingredients list", "User Reviews"];
-    const rfPlaceholders = [
-        "vegetarian recipes",
-        "gluten-free options",
-        "User Reviews",
-    ];
-
     const rfContent: RFContent[] = [
         {
             title: "Recipe filters",

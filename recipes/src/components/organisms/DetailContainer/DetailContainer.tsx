@@ -27,7 +27,7 @@ const DetailContainer: React.FC<Props> = ({ recipe }) => {
 
         getData();
         console.log(reviews);
-    }, [allReviews, recipe.id]);
+    }, [allReviews, recipe.id, reviews]);
 
     return (
         <div className="detail-container container">

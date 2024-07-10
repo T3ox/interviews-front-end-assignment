@@ -1,25 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
 import { UpdatedAPIRecipe } from "../../../API/APIData";
-import getRecipes from "../../../API/getRecipes";
 import CustomButton from "../../atoms/Button/CustomButton";
 import TagContainer from "../../molecules/TagContainer/TagContaier";
 import "./styles.scss";
+import Props from "./type";
 
-const RecipeCard = () => {
-    const [recipes, setRecipes] = useState<UpdatedAPIRecipe[]>();
+const RecipeCard: React.FC<Props> = ({ array }) => {
     const navigate = useNavigate();
 
-    useEffect(() => {
-        const getData = async () => {
-            const data: UpdatedAPIRecipe[] = await getRecipes();
-            setRecipes(data);
-        };
-
-        getData();
-    }, []);
-
-    if (!recipes) {
+    if (!array) {
         return <h2>...loading</h2>;
     }
 
@@ -29,7 +19,7 @@ const RecipeCard = () => {
 
     return (
         <div className="recipe-list">
-            {recipes.map((recipe) => (
+            {array.map((recipe) => (
                 <div
                     className="recipe-container d-flex align-items-center my-2"
                     key={recipe.id}
@@ -54,6 +44,7 @@ const RecipeCard = () => {
                         <CustomButton
                             text="Details"
                             handle={() => openDetail(recipe)}
+                            disabled={false}
                         />
                     </div>
                 </div>

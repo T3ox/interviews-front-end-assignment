@@ -15,7 +15,7 @@ const DiscoverRecipes: React.FC<Props> = ({ titles, placeholders }) => {
                     placeholder={placeholders[index]}
                 />
             ))}
-            <CustomButton text="Search" handle={() => {}} />
+            <CustomButton text="Search" handle={() => {}} disabled={false} />
         </div>
     );
 };
