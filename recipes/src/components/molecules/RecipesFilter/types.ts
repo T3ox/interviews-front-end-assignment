@@ -1,6 +1,4 @@
 export default interface Props {
-    //titles: string[];
-    //filters: string[];
     content: RFContent[];
 }
 

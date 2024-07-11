@@ -27,3 +27,11 @@ export const getLocalIngredients = () => {
 export const setLocalIngredients = (selectedFilters: string[]) => {
     localStorage.setItem("filters", selectedFilters.toString());
 };
+
+export const getLocalOptions = (): string[] => {
+    return JSON.parse(localStorage.getItem("options") || "[]");
+};
+
+export const setLocalOptions = (options: string[]): void => {
+    localStorage.setItem("options", JSON.stringify(options));
+};

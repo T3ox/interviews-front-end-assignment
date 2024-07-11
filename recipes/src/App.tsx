@@ -1,6 +1,7 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
+import AddRecipe from "./components/pages/AddRecipe";
 import RecipeDetail from "./components/pages/RecipeDetail";
 import RecipesList from "./components/pages/Recipes";
 import Welcome from "./components/pages/Welcome";
@@ -17,10 +18,8 @@ const App = () => {
                         <Layout>
                             <Routes>
                                 <Route path="/" element={<RecipesList />} />
-                                <Route
-                                    path="/detail"
-                                    element={<RecipeDetail />}
-                                />
+                                <Route path="/detail" element={<RecipeDetail />} />
+                                <Route path="/addRecipe" element={<AddRecipe />} />
                             </Routes>
                         </Layout>
                     }

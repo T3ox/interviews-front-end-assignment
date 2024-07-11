@@ -1,9 +1,5 @@
 import React, { useEffect, useState } from "react";
-import {
-    addFilter,
-    getLocalRecipes,
-    removeFilter,
-} from "../../utils/localStorage";
+import { addFilter, getLocalRecipes, removeFilter } from "../../utils/localStorage";
 import "./styles.scss";
 import Props from "./type";
 
@@ -27,7 +23,7 @@ const Checkbox: React.FC<Props> = ({ filterOption }) => {
     };
 
     return (
-        <div className="filter-option">
+        <div className="filter-option d-flex">
             <input
                 type="checkbox"
                 id={filterOption}

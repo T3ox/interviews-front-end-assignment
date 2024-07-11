@@ -1,8 +1,28 @@
 import axios from "axios";
+import { setLocalOptions } from "../components/utils/localStorage";
 import { APIRecipe, UpdatedAPIRecipe } from "./APIData";
 
-const fetchData = async (url: string) => {
-    const response = await axios.get(url, {
+const fetchData = async () => {
+    const response = await axios.get("http://localhost:8080/recipes", {
+        headers: { "Cache-Control": "no-cache" },
+    });
+    return response.data;
+};
+
+const fetchCuisines = async () => {
+    const response = await axios.get("http://localhost:8080/cuisines", {
+        headers: { "Cache-Control": "no-cache" },
+    });
+    return response.data;
+};
+const fetchDiets = async () => {
+    const response = await axios.get("http://localhost:8080/diets", {
+        headers: { "Cache-Control": "no-cache" },
+    });
+    return response.data;
+};
+const fetchDifficulties = async () => {
+    const response = await axios.get("http://localhost:8080/difficulties", {
         headers: { "Cache-Control": "no-cache" },
     });
     return response.data;
@@ -11,11 +31,16 @@ const fetchData = async (url: string) => {
 const getRecipes = async (): Promise<UpdatedAPIRecipe[]> => {
     try {
         const [recipes, cuisines, diets, difficulties] = await Promise.all([
-            fetchData("http://localhost:8080/recipes"),
-            fetchData("http://localhost:8080/cuisines"),
-            fetchData("http://localhost:8080/diets"),
-            fetchData("http://localhost:8080/difficulties"),
+            fetchData(),
+            fetchCuisines(),
+            fetchDiets(),
+            fetchDifficulties(),
         ]);
+
+        const cuisineNames = cuisines.map((cuisine: { id: string; name: string }) => cuisine.name);
+        const dietNames = diets.map((diet: { id: string; name: string }) => diet.name);
+        const difficultyNames = difficulties.map((difficulty: { id: string; name: string }) => difficulty.name);
+        setLocalOptions([...cuisineNames, ...dietNames, ...difficultyNames]);
 
         const createMap = (items: { id: string; name: string }[]) =>
             items.reduce((acc, item) => {
@@ -27,7 +52,6 @@ const getRecipes = async (): Promise<UpdatedAPIRecipe[]> => {
         const dietMap = createMap(diets);
         const difficultyMap = createMap(difficulties);
 
-        // Update the recipes with the names
         const updatedRecipes: UpdatedAPIRecipe[] = recipes.map((recipe: APIRecipe) => ({
             ...recipe,
             cuisineName: cuisineMap[recipe.cuisineId],
