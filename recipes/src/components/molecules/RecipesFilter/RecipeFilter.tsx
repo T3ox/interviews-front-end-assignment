@@ -1,22 +1,20 @@
 import React from "react";
+import Checkbox from "../../atoms/Checkbox/Checkbox";
+import "./styles.scss";
 import Props from "./types";
-import "./styles.scss"
 
 const RecipeFilter: React.FC<Props> = ({ content }) => {
     return (
-        <>
-            {content.map((item, index) => (
-                <>
-                    <h2>{content[index].title}</h2>
-                    {item.filters.map((item, filtersIndex) => (
-                        <div className="filter-option d-flex align-items-center">
-                            <input type="checkbox" />
-                            <p key={filtersIndex}>{item}</p>
-                        </div>
+        <div className="filter-container">
+            {content.map((item, itemIndex) => (
+                <div className="filter-group" key={itemIndex}>
+                    <h2>{item.title}</h2>
+                    {item.filters.map((filter, index) => (
+                        <Checkbox filterOption={filter} key={index} />
                     ))}
-                </>
+                </div>
             ))}
-        </>
+        </div>
     );
 };
 

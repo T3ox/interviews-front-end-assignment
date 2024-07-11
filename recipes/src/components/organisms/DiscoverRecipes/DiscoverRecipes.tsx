@@ -7,7 +7,7 @@ import Props from "./types";
 const DiscoverRecipes: React.FC<Props> = ({ titles, placeholders }) => {
     return (
         <div className="discover-recipes d-flex flex-column align-items-center">
-            <h1 className="align-self-start">Discover recipes</h1>
+            <h2 className="align-self-start">Discover recipes</h2>
             {titles.map((filter, index) => (
                 <SearchDiscover
                     key={index}

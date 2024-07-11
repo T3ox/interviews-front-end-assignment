@@ -5,8 +5,8 @@ import Props from "./types";
 const TagContainer: React.FC<Props> = ({ tags }) => {
     return (
         <>
-            {tags.map((tag) => (
-                <SingleTag tag={tag} />
+            {tags.map((tag, index) => (
+                <SingleTag tag={tag} key={index} />
             ))}
         </>
     );

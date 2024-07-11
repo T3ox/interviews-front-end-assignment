@@ -32,7 +32,7 @@ const RecipeCard: React.FC<Props> = ({ array }) => {
                     </div>
                     <div className="content-container ">
                         <h3>{recipe.name}</h3>
-                        <p>{recipe.cuisineName}</p>
+                        <p>{recipe.cuisineName} recipe</p>
                         <p>{recipe.ingredients.join(", ")}</p>
                         <div className="tag-container d-flex">
                             <TagContainer

@@ -3,17 +3,8 @@ import CustomButton from "../../atoms/Button/CustomButton";
 import "./styles.scss";
 import Props from "./types";
 
-const Pagination: React.FC<Props> = ({
-    data,
-    recipesPerPage,
-    currentPage,
-    onPageChange,
-}) => {
-    console.log(data.length);
-    const numberOfPages = useMemo(
-        () => Math.ceil(data.length / recipesPerPage),
-        [data, recipesPerPage]
-    );
+const Pagination: React.FC<Props> = ({ data, recipesPerPage, currentPage, onPageChange }) => {
+    const numberOfPages = useMemo(() => Math.ceil(data.length / recipesPerPage), [data, recipesPerPage]);
     const isFirstPage = currentPage === 1;
     const isLastPage = currentPage === numberOfPages;
 

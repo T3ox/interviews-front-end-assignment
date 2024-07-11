@@ -28,14 +28,12 @@ const getRecipes = async (): Promise<UpdatedAPIRecipe[]> => {
         const difficultyMap = createMap(difficulties);
 
         // Update the recipes with the names
-        const updatedRecipes: UpdatedAPIRecipe[] = recipes.map(
-            (recipe: APIRecipe) => ({
-                ...recipe,
-                cuisineName: cuisineMap[recipe.cuisineId],
-                dietName: dietMap[recipe.dietId],
-                difficultyName: difficultyMap[recipe.difficultyId],
-            })
-        );
+        const updatedRecipes: UpdatedAPIRecipe[] = recipes.map((recipe: APIRecipe) => ({
+            ...recipe,
+            cuisineName: cuisineMap[recipe.cuisineId],
+            dietName: dietMap[recipe.dietId],
+            difficultyName: difficultyMap[recipe.difficultyId],
+        }));
 
         return updatedRecipes;
     } catch (err) {
