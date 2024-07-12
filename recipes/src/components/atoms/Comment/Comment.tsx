@@ -3,8 +3,7 @@ import React from "react";
 import Rating from "../../atoms/Rating/Rating";
 import "./styles.scss";
 import Props from "./types";
-const defaultPFP =
-    require("../../utils/images/GenericProfileImage.png") as string;
+const defaultPFP = require("../../utils/images/GenericProfileImage.png") as string;
 
 const Comment: React.FC<Props> = ({ comment, rating, date }) => {
     const formattedDate: string = format(parseISO(date), "MMMM d, yyyy, HH:mm");
