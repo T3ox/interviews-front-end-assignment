@@ -1,6 +1,6 @@
 import React from "react";
+import RecipesList from "../molecules/RecipesList/RecipesList";
 import FilterSection from "../organisms/FilterSection/FilterSection";
-import RecipesList from "../organisms/RecipesList/RecipesList";
 import "./styles.scss";
 
 const Recipes = () => {

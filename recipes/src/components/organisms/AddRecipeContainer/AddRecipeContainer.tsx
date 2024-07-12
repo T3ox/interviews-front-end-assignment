@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { UpdatedAPIRecipe } from "../../../API/APIData";
-import AddRecipeCategories from "../../atoms/AddRecipeCategories/AddRecipeCategories";
-import AddRecipeField from "../../atoms/AddRecipeField/AddRecipeField";
-import AddRecipeImage from "../../atoms/AddRecipeImage/AddRecipeIngredients";
-import AddRecipeIngredients from "../../atoms/AddRecipeIngredients/AddRecipeIngredients";
 import CustomButton from "../../atoms/Button/CustomButton";
+import AddRecipeCategories from "../../atoms/RecipeAdd/AddRecipeCategories/AddRecipeCategories";
+import AddRecipeField from "../../atoms/RecipeAdd/AddRecipeField/AddRecipeField";
+import AddRecipeImage from "../../atoms/RecipeAdd/AddRecipeImage/AddRecipeImage";
+import AddRecipeIngredients from "../../atoms/RecipeAdd/AddRecipeIngredients/AddRecipeIngredients";
 import { getLocalOptions } from "../../utils/localStorage";
 import "./styles.scss";
 const AddRecipeContainer = () => {
@@ -41,25 +41,12 @@ const AddRecipeContainer = () => {
         }));
     };
 
-    /*const handleInstructionChange = (value: string) => {
-        setSubmit((prevSubmit) => ({
-            ...prevSubmit,
-            name: value,
-        }));
-    };*/
-
     const handleInstructionChange = (value: string) => {
         setSubmit((prevSubmit) => ({
             ...prevSubmit,
             instructions: value,
         }));
     };
-
-    /*const handleMainIngredientsChange = (index: number, value: string) => {
-        const newIngredients = [...mainIngredients];
-        newIngredients[index] = value;
-        setMainIngredients(newIngredients);
-    };*/
 
     const handleMainIngredientsChange = (index: number, value: string) => {
         const newIngredients = [...mainIngredients];
@@ -84,26 +71,6 @@ const AddRecipeContainer = () => {
 
     const formSubmit = (e: React.FormEvent) => {
         e.preventDefault();
-        /*const recipeData = {
-            title,
-            description,
-            mainIngredients,
-            image,
-            categories,
-        };
-        const recipeData: UpdatedAPIRecipe = {
-            cuisineId: "",
-            cuisineName: "",
-            dietId: "",
-            dietName: "",
-            difficultyId: "",
-            difficultyName: "",
-            id: "",
-            image: "",
-            ingredients: mainIngredients,
-            instructions: instructions,
-            name: title,
-        };*/
 
         console.log(submit);
     };

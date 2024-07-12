@@ -1,14 +1,24 @@
 import React, { useEffect, useMemo } from "react";
-import DifficultFilter from "../../molecules/DifficultFilter/DifficultFilter";
-import RecipeFilter from "../../molecules/RecipesFilter/RecipeFilter";
-import { RFContent } from "../../molecules/RecipesFilter/types";
+import DifficultFilter from "../../molecules/FilterSection/DifficultFilter/DifficultFilter";
+import DiscoverRecipes from "../../molecules/FilterSection/DiscoverRecipes/DiscoverRecipes";
+import RecipeFilter from "../../molecules/FilterSection/RecipesFilter/RecipeFilter";
+import { RFContent } from "../../molecules/FilterSection/RecipesFilter/types";
 import { setLocalRecipes } from "../../utils/localStorage";
-import DiscoverRecipes from "../DiscoverRecipes/DiscoverRecipes";
 import "./styles.scss";
 
 const FilterSection = () => {
-    const drTitles = ["Search by name", "Select category", "Select cuisine", "Select dietary preference"];
-    const drPlaceholders = ["Enter reciper name", "Choose category", "Choose cuisine", "Choose preference"];
+    const drTitles = [
+        "Search by name",
+        "Select category",
+        "Select cuisine",
+        "Select dietary preference",
+    ];
+    const drPlaceholders = [
+        "Enter reciper name",
+        "Choose category",
+        "Choose cuisine",
+        "Choose preference",
+    ];
 
     const rfContent: RFContent[] = useMemo(
         () => [
@@ -18,7 +28,12 @@ const FilterSection = () => {
             },
             {
                 title: "Ingredient list",
-                filters: ["Quick and Easy", "Healthy choices", "Family friendly", "Special Occasions"],
+                filters: [
+                    "Quick and Easy",
+                    "Healthy choices",
+                    "Family friendly",
+                    "Special Occasions",
+                ],
             },
         ],
         []
