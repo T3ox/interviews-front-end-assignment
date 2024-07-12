@@ -10,7 +10,7 @@ const Welcome = () => {
             <div className="row justify-content-center">
                 <h2>Ricettario</h2>
                 <span>Esplorare le nostre ricette</span>
-                <CustomButton text="explore" handle={() => navigate("/")} disabled={false} />
+                <CustomButton text="explore" handle={() => navigate("/list")} disabled={false} />
             </div>
         </main>
     );
