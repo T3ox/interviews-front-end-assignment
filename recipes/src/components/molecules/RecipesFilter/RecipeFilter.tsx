@@ -10,7 +10,7 @@ const RecipeFilter: React.FC<Props> = ({ content }) => {
                 <div className="filter-group" key={itemIndex}>
                     <h2>{item.title}</h2>
                     {item.filters.map((filter, index) => (
-                        <Checkbox filterOption={filter} key={index} />
+                        <Checkbox filterOption={filter} key={index} selectedCategories={[]} onChange={() => {}} />
                     ))}
                 </div>
             ))}

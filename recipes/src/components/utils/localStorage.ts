@@ -28,10 +28,10 @@ export const setLocalIngredients = (selectedFilters: string[]) => {
     localStorage.setItem("filters", selectedFilters.toString());
 };
 
-export const getLocalOptions = (): string[] => {
+export const getLocalOptions = (): string[][] => {
     return JSON.parse(localStorage.getItem("options") || "[]");
 };
 
-export const setLocalOptions = (options: string[]): void => {
+export const setLocalOptions = (options: { id: string; name: string }[][]): void => {
     localStorage.setItem("options", JSON.stringify(options));
 };

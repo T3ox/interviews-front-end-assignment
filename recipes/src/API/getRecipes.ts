@@ -40,7 +40,7 @@ const getRecipes = async (): Promise<UpdatedAPIRecipe[]> => {
         const cuisineNames = cuisines.map((cuisine: { id: string; name: string }) => cuisine.name);
         const dietNames = diets.map((diet: { id: string; name: string }) => diet.name);
         const difficultyNames = difficulties.map((difficulty: { id: string; name: string }) => difficulty.name);
-        setLocalOptions([...cuisineNames, ...dietNames, ...difficultyNames]);
+        setLocalOptions([cuisineNames, dietNames, difficultyNames]);
 
         const createMap = (items: { id: string; name: string }[]) =>
             items.reduce((acc, item) => {

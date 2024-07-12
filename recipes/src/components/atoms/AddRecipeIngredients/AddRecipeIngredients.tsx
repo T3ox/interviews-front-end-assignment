@@ -1,50 +1,32 @@
-import React, { useEffect, useState } from "react";
-import { getLocalOptions } from "../../utils/localStorage";
-import Props from "../AddRecipeField/types";
-import Checkbox from "../Checkbox/Checkbox";
+import React from "react";
+import SearchBar from "../SearchBar/SearchBar";
+import "./styles.scss";
+import Props from "./types";
 
-const AddRecipeIngredients: React.FC<Props> = ({ title }) => {
-    const [ingredients, setIngredients] = useState<string[]>(Array(6).fill(""));
-    const [options, setOptions] = useState<string[]>([]);
-
-    const addIngredientField = () => {
-        setIngredients([...ingredients, ""]);
+const AddRecipeIngredients: React.FC<Props> = ({ title, mainIngredients, onChange }) => {
+    const handleInputChange = (index: number, value: string) => {
+        onChange(index, value);
     };
-
-    const handleInputChanges = (index: number, value: string) => {
-        const newIngredients = ingredients.slice();
-        newIngredients[index] = value;
-        setIngredients(newIngredients);
-    };
-
-    useEffect(() => {
-        setOptions(getLocalOptions());
-    }, []);
 
     return (
         <div className="form-field">
             <div className="recipe-details">
-                <div className="d-flex">
+                <div className="ingredients-header d-flex align-items-center">
                     <h4>{title}</h4>
-                    <button type="button" onClick={addIngredientField}>
-                        +
-                    </button>
                 </div>
-                {ingredients.map((ingredient, index) => (
-                    <input
-                        key={index}
-                        type="text"
-                        placeholder={`Ingredient ${index + 1}`}
-                        value={ingredient}
-                        onChange={(e) => handleInputChanges(index, e.target.value)}
-                    />
-                ))}
+                <div className="ingredients-container d-flex justify-content-around flex-wrap">
+                    {mainIngredients.map((ingredient, index) => (
+                        <SearchBar
+                            placeholder={`Ingredient ${index + 1}`}
+                            key={index}
+                            value={ingredient}
+                            onChange={(e) => handleInputChange(index, e.target.value)}
+                        />
+                    ))}
+                </div>
             </div>
-            
-            <div className="categories-attributes">
-                drop down menu
-                
-            </div>
+
+            <div className="categories-attributes">drop down menu</div>
         </div>
     );
 };

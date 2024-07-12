@@ -1,3 +1,3 @@
 export default interface Props {
-    options: string[];
+    onChange: (file: File) => void;
 }

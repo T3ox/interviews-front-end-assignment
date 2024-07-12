@@ -1,29 +1,30 @@
-import React, { useEffect, useState } from "react";
-import { addFilter, getLocalRecipes, removeFilter } from "../../utils/localStorage";
+import React, { ChangeEvent, useEffect, useState } from "react";
+import { addFilter, removeFilter } from "../../utils/localStorage";
 import "./styles.scss";
 import Props from "./type";
 
-const Checkbox: React.FC<Props> = ({ filterOption }) => {
+const Checkbox: React.FC<Props> = ({ filterOption, selectedCategories, onChange }) => {
     const [isChecked, setIsChecked] = useState(false);
 
     useEffect(() => {
-        const activeFilters = getLocalRecipes();
-        if (activeFilters.includes(filterOption)) {
-            setIsChecked(true);
-        }
-    }, [filterOption]);
+        setIsChecked(selectedCategories.includes(filterOption));
+    }, [filterOption, selectedCategories]);
 
-    const handleCheckboxChange = () => {
-        setIsChecked(!isChecked);
-        if (isChecked) {
-            removeFilter(filterOption);
-        } else {
+    const handleCheckboxChange = (e: ChangeEvent<HTMLInputElement>) => {
+        const { checked } = e.target;
+        setIsChecked(checked);
+
+        if (checked) {
+            onChange([...selectedCategories, filterOption]);
             addFilter(filterOption);
+        } else {
+            onChange(selectedCategories.filter((category) => category !== filterOption));
+            removeFilter(filterOption);
         }
     };
 
     return (
-        <div className="filter-option d-flex">
+        <div className="filter-option d-flex align-items-center">
             <input
                 type="checkbox"
                 id={filterOption}

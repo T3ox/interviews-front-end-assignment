@@ -1,5 +1,5 @@
 export default interface Props {
     text: string;
-    handle: () => void;
+    handle: (e: React.FormEvent) => void;
     disabled: boolean;
 }
